@@ -172,13 +172,13 @@ class Integracao {
             'Content-Type: '.$content.''
         );
 
-        $usuario = '$2a$06$Cf1f11ePArKlBJomM0F6a.v3yPo8Si0.RSWU0V.n/iZ9qmPG4iExO';
-        $senha = 'e6a6e86f470a960fbfc624fec4fcf8cfdddc881aa705b3beb5c0376ce7091766';
+        $usuario = 'Seu usuario aqui';
+        $senha = 'Sua senha aqui';
 
         curl_setopt($ch, CURLOPT_URL,$destino);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-        curl_setopt($ch,CURLOPT_USERPWD,"$usuario:$senha");
+        curl_setopt($ch, CURLOPT_USERPWD,"$usuario:$senha");
         if (curl_errno($ch)) {
             throw new Exception("Erro ao processar requisiÃ§Ã£o " . curl_error($ch));
         } else {
