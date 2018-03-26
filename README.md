@@ -90,3 +90,21 @@ uploadPessoa('email@corretor.com',array[tmp_name, type, name],'1212', 1)
 ```
 Com o envio de sua requisição, será retornado um cabeçalho Json, contendo um 'status', podendo ser 'sucesso' ou 'erro', e também uma mensagem com o tipo do erro, e caso o status seja de 'sucesso' irá ser informado que seu upload foi enviado.
 
+
+## Enviar/Validar uma solicitação
+
+A API dispõe de uma validação para saber se seu imóvel está pronto para o envio, para isso você deve utilizar a classe validaImovel(), no qual você deve preencher o número do imóvel, email do corretor e a opção, sendo '1' para envio da solicitação para análise e 0 para apenas verificação da solicitação.
+
+Note que, com a opção '1' selecionada, antes de ser enviado para análise, será feito uma verificação, podendo assim retornar um cabeçalho Json com um status de 'erro' e uma mensagem com o motivo do erro.
+
+## Deletar uma pessoa
+
+Para deletar uma pessoa você deve utilizar a classe deletaPessoa(), assim como em uma consulta, que você deve concatenar o email do corretor e o id/número da pessoa, para deletar uma pessoa você deve fazer o mesmo, como no exemplo abaixo:
+
+```bash
+$parametro = '1212-email@corretor.com';
+deletaPessoa($parametro)
+```
+
+Com o envio de sua requisição será retornado um cabeçalho Json com o status e uma mensagem.
+
