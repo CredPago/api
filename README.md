@@ -112,3 +112,7 @@ deletaPessoa($parametro)
 
 Com o envio de sua requisição será retornado um cabeçalho Json com o status e uma mensagem.
 
+
+## Webhook
+
+Caso você queira utilizar o webook, envie um e-mail com o titulo 'Webhook API' para ti@credpago.com.
