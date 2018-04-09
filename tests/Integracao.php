@@ -39,6 +39,13 @@ class Integracao {
         $retorno = $this->httpRequest($dados, self::METODO_POST);
         return $retorno;
     }
+    
+    public function criaSimulacao($email_corretor, $pessoa){
+        $dados = array( 'email_corretor' => $email_corretor, 'cpf' => $pessoa['cpf'], 'nome' => $pessoa['nome'], 'limite_cartao' => $pessoa['limite_cartao']
+        $this->_url = "https://dev.credpago.com/api/v1/simulador/novo";
+        $retorno = $this->httpRequest($dados, self::METODO_POST);
+        return $retorno;
+    }
 
     public function uploadPessoa($email_corretor, $anexo, $id_pessoa, $tipo){
         $arquivo_url = realpath($anexo['tmp_name']);
