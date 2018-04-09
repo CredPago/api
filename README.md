@@ -112,6 +112,14 @@ deletaPessoa($parametro)
 
 Com o envio de sua requisição será retornado um cabeçalho Json com o status e uma mensagem.
 
+## Simulador
+
+Para utilizar o simulador você deve serguir o exemplo abaixo:
+
+```bash
+criaSimulacao('email@corretor.com',array[cpf, nome, limite_cartao, tp_imovel])
+```
+Com o envio de sua requisição será retornado um cabeçalho Json com o status da requisição.
 
 ## Webhook
 
