@@ -18,32 +18,35 @@ class Integracao {
     $numero,$bairro,$cidade,$uf,$opcional) 
     { $dados = array( 'email_corretor' => $email_corretor, 'tipo' => $tipo, 'servico' => $servico, 'valor' => $valor_servico, 
      'valor_setup' => $valor_setup, 'parcela_setup' => $parcela_setup, 'cep' => $cep,'endereco' => $endereco, 
-     'numero' => $numero, 'bairro' => $bairro, 'cidade' => $cidade,'uf' => $uf, 'complemento' => $opcinal['complemento'],
-     'descricao' => $opcinal['descricao'], 'tag' => $opcinal['tag']);
+     'numero' => $numero, 'bairro' => $bairro, 'cidade' => $cidade,'uf' => $uf, 'complemento' => $opcional['complemento'],
+     'descricao' => $opcional['descricao'], 'tag' => $opcional['tag']);
         $this->_url = "https://dev.credpago.com/api/v1/imovel/novo";
         $retorno = $this->httpRequest($dados, self::METODO_POST);
         return $retorno;
     }
 
     public function criaPessoa($email_corretor, $id_imovel, $pessoa){
-        $dados = array( 'email_corretor' => $email_corretor, 'id_imovel' => $id_imovel , 'tp_pessoa' => $pessoa['tp_pessoa'],'nome' => $pessoa['nome'], 'cpf' => $pessoa['cpf'], 'email' => $pessoa['email'],
-            'data_nascimento' => $pessoa['data_nascimento'], 'telefone' => $pessoa['telefone'], 'cep' => $pessoa['cep'], 'endereco' => $pessoa['endereco'],
-            'endereco_numero' => $pessoa['endereco_numero'], 'bairro' => $pessoa['bairro'], 'cidade' => $pessoa['cidade'], 'uf' => $pessoa['uf'], 'descricao' => $pessoa['descricao'] );
+        $dados = array( 'email_corretor' => $email_corretor, 'id_imovel' => $id_imovel , 'tp_pessoa' => $pessoa['tp_pessoa'],
+        'nome' => $pessoa['nome'], 'cpf' => $pessoa['cpf'], 'email' => $pessoa['email'], 
+        'data_nascimento' => $pessoa['data_nascimento'], 'telefone' => $pessoa['telefone'], 'cep' => $pessoa['cep'], 
+        'endereco' => $pessoa['endereco'], 'endereco_numero' => $pessoa['endereco_numero'], 'bairro' => $pessoa['bairro'], 
+        'cidade' => $pessoa['cidade'], 'uf' => $pessoa['uf'], 'descricao' => $pessoa['descricao'] );
         $this->_url = "https://dev.credpago.com/api/v1/pessoa/novo";
         $retorno = $this->httpRequest($dados, self::METODO_POST);
         return $retorno;
     }
 
     public function criaCartao($email_corretor,$id_pessoa, $bandeira, $numero, $data_validade, $limite, $saldo, $fatura){
-        $dados = array( 'email_corretor' => $email_corretor, 'id_pessoa' => $id_pessoa, 'bandeira' => $bandeira, 'numero' => $numero,
-            'data_validade' => $data_validade, 'limite' => $limite, 'saldo' => $saldo, 'fatura' => $fatura);
+        $dados = array( 'email_corretor' => $email_corretor, 'id_pessoa' => $id_pessoa, 'bandeira' => $bandeira, 
+        'numero' => $numero,'data_validade' => $data_validade, 'limite' => $limite, 'saldo' => $saldo, 'fatura' => $fatura);
         $this->_url = "https://dev.credpago.com/api/v1/cartao/novo";
         $retorno = $this->httpRequest($dados, self::METODO_POST);
         return $retorno;
     }
     
     public function criaSimulacao($email_corretor, $pessoa){
-        $dados = array( 'email_corretor' => $email_corretor, 'cpf' => $pessoa['cpf'], 'nome' => $pessoa['nome'], 'limite_cartao' => $pessoa['limite_cartao'],'tipo_imovel' => $pessoa['tipo_imovel']
+        $dados = array( 'email_corretor' => $email_corretor, 'cpf' => $pessoa['cpf'], 'nome' => $pessoa['nome'], 
+        'limite_cartao' => $pessoa['limite_cartao'],'tipo_imovel' => $pessoa['tipo_imovel']
         $this->_url = "https://dev.credpago.com/api/v1/simulador/novo";
         $retorno = $this->httpRequest($dados, self::METODO_POST);
         return $retorno;
@@ -64,18 +67,23 @@ class Integracao {
         return $retorno;
     }
 
-    public function alteraImovel($id_imovel,$email_corretor,$tipo,$servico,$valor,$valor_setup,$parcela_setup,$cep,$endereco,$numero,$bairro,$cidade,$uf){
-        $dados = array( 'email_corretor' => $email_corretor, 'tipo' => $tipo, 'servico' => $servico, 'valor' => $valor,'valor_setup' => $valor_setup, 'parcela_setup' => $parcela_setup,'cep' => $cep,
-            'endereco' => $endereco, 'numero' => $numero, 'bairro' => $bairro, 'cidade' => $cidade,'uf' => $uf);
+    public function alteraImovel($id_imovel,$email_corretor,$tipo,$servico,$valor,$valor_setup,$parcela_setup,$cep,$endereco,
+    $numero,$bairro,$cidade,$uf,$opcional){
+        $dados = array( 'email_corretor' => $email_corretor, 'tipo' => $tipo, 'servico' => $servico, 'valor' => $valor,
+        'valor_setup' => $valor_setup, 'parcela_setup' => $parcela_setup,'cep' => $cep,'endereco' => $endereco, 
+        'numero' => $numero, 'bairro' => $bairro, 'cidade' => $cidade,'uf' => $uf,'complemento' => $opcional['complemento'],
+        'descricao' => $opcional['descricao'], 'tag' => $opcional['tag']);
         $this->_url = "https://dev.credpago.com/api/v1/imovel/altera/{$id_imovel}";
         $retorno = $this->httpRequest($dados, self::METODO_PUT);
         return $retorno;
     }
 
     public function alteraPessoa($email_corretor, $id_pessoa, $pessoa){
-        $dados = array( 'email_corretor' => $email_corretor, 'tp_pessoa' => $pessoa['tp_pessoa'],'nome' => $pessoa['nome'], 'cpf' => $pessoa['cpf'], 'email' => $pessoa['email'],
-            'data_nascimento' => $pessoa['data_nascimento'], 'telefone' => $pessoa['telefone'], 'cep' => $pessoa['cep'], 'endereco' => $pessoa['endereco'],
-            'endereco_numero' => $pessoa['endereco_numero'], 'bairro' => $pessoa['bairro'], 'cidade' => $pessoa['cidade'], 'uf' => $pessoa['uf'], 'descricao' => $pessoa['descricao']);
+        $dados = array( 'email_corretor' => $email_corretor, 'tp_pessoa' => $pessoa['tp_pessoa'],'nome' => $pessoa['nome'], 
+        'cpf' => $pessoa['cpf'], 'email' => $pessoa['email'],'data_nascimento' => $pessoa['data_nascimento'], 
+        'telefone' => $pessoa['telefone'], 'cep' => $pessoa['cep'], 'endereco' => $pessoa['endereco'],
+        'endereco_numero' => $pessoa['endereco_numero'], 'bairro' => $pessoa['bairro'], 'cidade' => $pessoa['cidade'], 
+        'uf' => $pessoa['uf'], 'descricao' => $pessoa['descricao']);
         $this->_url = "https://dev.credpago.com/api/v1/pessoa/altera/{$id_pessoa}";
         $retorno = $this->httpRequest($dados, self::METODO_PUT);
         return $retorno;
