@@ -14,7 +14,7 @@ class Integracao {
     const METODO_GET = "GET";
     const METODO_DELETE = "DELETE";
 
-    public function criaImovel($email_corretor,$tipo,$servico,$valor_servico,$valor_setup,$parcela_setup,$cep,$endereco,$numero,$bairro,$cidade,$uf){ $dados = array( 'email_corretor' => $email_corretor, 'tipo' => $tipo, 'servico' => $servico, 'valor' => $valor_servico, 'valor_setup' => $valor_setup, 'parcela_setup' => $parcela_setup, 'cep' => $cep,'endereco' => $endereco, 'numero' => $numero, 'bairro' => $bairro, 'cidade' => $cidade,'uf' => $uf);
+    public function criaImovel($email_corretor,$tipo,$servico,$valor_servico,$valor_setup,$parcela_setup,$cep,$endereco,$numero,$bairro,$cidade,$uf) { $dados = array( 'email_corretor' => $email_corretor, 'tipo' => $tipo, 'servico' => $servico, 'valor' => $valor_servico, 'valor_setup' => $valor_setup, 'parcela_setup' => $parcela_setup, 'cep' => $cep,'endereco' => $endereco, 'numero' => $numero, 'bairro' => $bairro, 'cidade' => $cidade,'uf' => $uf);
         $this->_url = "https://dev.credpago.com/api/v1/imovel/novo";
         $retorno = $this->httpRequest($dados, self::METODO_POST);
         return $retorno;
