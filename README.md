@@ -30,7 +30,7 @@ Para insercão de dados você também deve enviar o email do usuário, porém o 
 
 Utilize a classe criaImovel() para criar um novo imóvel, note que, você deve preencher todos os parâmetros necessários para ser criado o imóvel.
 ```bash
-criaImovel('email@corretor.com','1','1','50000','120','3','89201330','Rua Mario Lobo','61','Centro','Joinville','SC')
+criaImovel('email@corretor.com','1','1','5.000,00','120','3','89201330','Rua Mario Lobo','61','Centro','Joinville','SC')
 ```
 
 Com o envio de sua requisição, será retornado um cabeçalho Json, contendo um 'status', podendo ser 'sucesso' ou 'erro', e também uma mensagem com o tipo do erro, e caso o status seja de 'sucesso', o número do imóvel criado.
@@ -40,7 +40,7 @@ Com o envio de sua requisição, será retornado um cabeçalho Json, contendo um
 Para alterar um imóvel você deve utilizar a classe alteraImovel(), preenchendo todos os parâmetros como mostrado acima, porém dessa vez você deve enviar o número do imóvel a ser alterado junto a requisição, como mostra o exemplo abaixo:
 
 ```bash
-alteraImovel('1234','email@corretor.com','1','1','50000','120','3','89201330','Rua Mario Lobo','61','Centro','Joinville','SC')
+alteraImovel('1234','email@corretor.com','1','1','4.000,00','120','3','89201330','Rua Mario Lobo','61','Centro','Joinville','SC')
 ```
 
 Todos os imóveis criados pela API serão gerados como um rascunho.
@@ -67,7 +67,7 @@ alteraPessoa('email@corretor.com', '1212', array[dados da pessoa] )
 Para criar um cartão você deve utilizar a classe criaCartao(), e preencher todos os parâmetros exigidos:
 
 ```bash
-criaCartao('email@corretor.com','1212','MasterCard','5555555555555557','09/2022','100000','80000','15000')
+criaCartao('email@corretor.com','1212','MasterCard','5555555555555557','09/2022','10.000,00','8.000,00','1.240,00')
 ```
 Com o envio de sua requisição, será retornado um cabeçalho Json, contendo um 'status', podendo ser 'sucesso' ou 'erro', e também uma mensagem com o tipo do erro, e caso o status seja de 'sucesso' irá ser informado que seu cartão foi criado.
 
@@ -76,7 +76,7 @@ Com o envio de sua requisição, será retornado um cabeçalho Json, contendo um
 Para alteração, você deve utilizar a classe alteraCartao(), como no exemplo da alteração da pessoa, você deve adicionar como parâmetro o id da pessoa, como no exemplo abaixo:
 
 ```bash
-criaCartao('1212','email@corretor.com','1212','MasterCard','5555555555555557','09/2022','100000','80000','15000')
+alteraCartao('1212','email@corretor.com','1212','MasterCard','5555555555555557','09/2022','10.000,00','8.000,00','1.440,00')
 ```
 Note que, caso o tipo de imóvel seja 'Universitário', e o inquilino universitário seja menor de 24 anos, o mesmo não necessita de um cartão de crédito, porém o seu tutor sendo corresponsável ou um inquilino, necessita normalmente de um cartão válido.
 
