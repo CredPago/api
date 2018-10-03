@@ -93,7 +93,7 @@ Com o envio de sua requisição, será retornado um cabeçalho Json, contendo um
 
 ## Enviar/Validar uma solicitação
 
-A API dispõe de uma validação para saber se seu imóvel está pronto para o envio, para isso você deve utilizar a classe validaImovel(), no qual você deve preencher o número do imóvel, email do corretor e a opção, sendo '1' para envio da solicitação para análise e '0' para apenas verificação da solicitação.
+A API dispõe de uma validação para saber se seu imóvel está pronto para o envio, para isso você deve utilizar a classe validaImovel(), no qual você deve preencher o número do imóvel, email do corretor e a opção, sendo '2' para envio da solicitação para análise e '1' para apenas verificação da solicitação.
 
 ```bash
 validaImovel('1234', 'email@corretor.com', 1)
