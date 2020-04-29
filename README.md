@@ -62,25 +62,6 @@ Caso queira alterar uma pessoa você deve utilizar a classe alteraPessoa(), segu
 alteraPessoa('email@corretor.com', '1212', array[dados da pessoa] )
 ```
 
-## Criar/Alterar um cartão
-
-Para criar um cartão você deve utilizar a classe criaCartao(), e preencher todos os parâmetros exigidos:
-
-```bash
-criaCartao('email@corretor.com','1212','MasterCard','5555555555555557','09/2022','10.000,00','8.000,00','1.240,00')
-```
-Com o envio de sua requisição, será retornado um cabeçalho Json, contendo um 'status', podendo ser 'sucesso' ou 'erro', e também uma mensagem com o tipo do erro, e caso o status seja de 'sucesso' irá ser informado que seu cartão foi criado.
-
-<br>
-
-Para alteração, você deve utilizar a classe alteraCartao(), como no exemplo da alteração da pessoa, você deve adicionar como parâmetro o id da pessoa, como no exemplo abaixo:
-
-```bash
-alteraCartao('1212','email@corretor.com','1212','MasterCard','5555555555555557','09/2022','10.000,00','8.000,00','1.440,00')
-```
-Note que, caso o tipo de imóvel seja 'Universitário', e o inquilino universitário seja menor de 24 anos, o mesmo não necessita de um cartão de crédito, porém o seu tutor sendo corresponsável ou um inquilino, necessita normalmente de um cartão válido.
-
-
 ## Upload de documentos
 
 Para o envio de um arquivo, sendo uma imagem ou um PDF, você deve utilizar a classe uploadPessoa(), contendo o e-mail do corretor e um array, cotendo o caminho do arquivo, tipo do arquivo e o nome do arquivo, caso não possua nenhum desses parâmetros, o servidor pode rejeitar o seu upload e bloquear sua chave por algumas horas, é necessário também o id da pessoa e o tipo de upload, como '1' sendo para faturas e '2' para documentos, exemplo abaixo:
