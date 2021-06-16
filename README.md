@@ -98,7 +98,7 @@ Com o envio de sua requisição será retornado um cabeçalho Json com o status 
 Para utilizar o simulador você deve serguir o exemplo abaixo:
 
 ```bash
-criaSimulacao('email@corretor.com',array['26858344004', 'João', 1])
+criaSimulacao('email@corretor.com',array['26858344004', 'João', 1, '1000.00'])
 ```
 Com o envio de sua requisição será retornado um cabeçalho Json com o status da requisição.
 
